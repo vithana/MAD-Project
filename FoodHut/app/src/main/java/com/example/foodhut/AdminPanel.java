@@ -98,6 +98,8 @@ public class AdminPanel extends AppCompatActivity
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new OrderFragment()).commit();
         } else if (id == R.id.admin_offer) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new OfferFragment()).commit();
+        } else if (id == R.id.admin_add_offer) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new AdminAddNewOffer()).commit();
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
