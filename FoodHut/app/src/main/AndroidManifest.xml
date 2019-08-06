@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".UserGetOffer"></activity>
+        <activity android:name=".UserGetOffer"
+            android:parentActivityName=".Main2Activity"
+            android:theme="@style/AppTheme.NoActionBar.NoActionBar"></activity>
         <activity
             android:name=".AdminPanel"
             android:label="@string/title_activity_admin_panel"
