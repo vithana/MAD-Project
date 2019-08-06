@@ -28,6 +28,15 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        ImageView btn1 = (ImageView) view.findViewById(R.id.imageView6);
+        btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent  = new Intent(getActivity(), ViewFood.class);
+                startActivity(intent);
+            }
+        });
+
 
         return view;    }
 }
