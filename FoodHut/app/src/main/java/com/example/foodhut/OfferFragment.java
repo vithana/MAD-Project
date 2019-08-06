@@ -28,7 +28,6 @@ public class OfferFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-<<<<<<< HEAD
 
         View view = inflater.inflate(R.layout.fragment_offer, container, false);
 
@@ -83,9 +82,5 @@ public class OfferFragment extends Fragment {
 
             return row;
         }
-=======
-        return inflater.inflate(R.layout.fragment_offer, container, false);
-
->>>>>>> dev
     }
 }
