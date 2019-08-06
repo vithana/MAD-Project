@@ -22,6 +22,20 @@
             android:title="@string/admin_offer" />
     </group>
 
+    <item android:title="Activities">
+        <menu>
+            <item
+                android:id="@+id/admin_add_product"
+                android:icon="@drawable/admin_add_product"
+                android:title="@string/admin_add_product" />
+
+            <item
+                android:id="@+id/admin_add_offer"
+                android:icon="@drawable/admin_add_offer"
+                android:title="@string/admin_add_offer" />
+        </menu>
+    </item>
+
     <item android:title="Externals">
         <menu>
             <item

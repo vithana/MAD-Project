@@ -98,7 +98,10 @@ public class Main2Activity extends AppCompatActivity
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container1, new CartFragment()).commit();
         } else if (id == R.id.nav_offer) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container1, new UserOfferFragment()).commit();
+        } else if (id == R.id.nav_user_profile) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container1, new UserProfileFragment()).commit();
         }
+
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout1);
         drawer.closeDrawer(GravityCompat.START);
