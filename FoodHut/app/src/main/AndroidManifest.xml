@@ -9,9 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
+        <activity android:name=".ConfirmDeatils"
+            android:theme="@style/AppTheme"></activity>
         <activity
             android:name=".DeliveryForm"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".UserGetOffer"
             android:parentActivityName=".Main2Activity"

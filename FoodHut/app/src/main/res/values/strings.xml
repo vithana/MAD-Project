@@ -25,4 +25,6 @@
     <string name="admin_add_product">Add Product</string>
     <string name="admin_add_offer">Add Offer</string>
 
+    <string name="confirm_det">Confirm Details</string>
+
 </resources>

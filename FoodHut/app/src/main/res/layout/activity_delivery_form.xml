@@ -109,7 +109,7 @@
         android:layout_marginTop="16dp"
         android:text="Save"
         android:textAllCaps="false"
-        android:onClick="navHome"
+        android:onClick="navCon"
         android:textColor="@color/login_form_details_medium"
         android:background="@drawable/btn_bg"
         app:layout_constraintEnd_toStartOf="@+id/guideline_right"
