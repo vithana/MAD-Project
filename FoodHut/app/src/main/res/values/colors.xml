@@ -6,6 +6,14 @@
     <color name="dark_blue">#000000</color>
     <color name="purple">#6b0621</color>
 
+    <color name="dark_white">#D6D5D6</color>
+
+    <color name="white">#fff</color>
+    <color name="color_black">#1D1C1C</color>
+
+
+
+
     <color name="login_form_details">#ccffffff</color>
     <color name="login_form_details_light">#1affffff</color>
     <color name="login_form_details_medium">#66ffffff</color>

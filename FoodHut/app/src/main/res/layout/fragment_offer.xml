@@ -1,14 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorAccent">
+    android:background="@color/color_black">
 
-    <TextView
-        android:layout_width="wrap_content"
+
+
+
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="281dp"
         android:layout_height="wrap_content"
-        android:text="Offer"
-        android:textSize="30sp"
-        android:layout_centerInParent="true"/>
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="66dp"
+        android:layout_marginTop="542dp"
+        android:background="@drawable/rounded_btn_offer"
+        android:text="GEt Offer" />
+
+    <view
+        android:id="@+id/view2"
+        class="com.google.android.material.circularreveal.CircularRevealGridLayout"
+        android:layout_width="310dp"
+        android:layout_height="265dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="347dp"
+        android:background="@drawable/rounded_view_offer" />
+
+    <view
+        android:id="@+id/view"
+        class="com.google.android.material.circularreveal.CircularRevealGridLayout"
+        android:layout_width="310dp"
+        android:layout_height="265dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="41dp"
+        android:background="@drawable/rounded_view_offer" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="281dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="66dp"
+        android:layout_marginTop="229dp"
+        android:background="@drawable/rounded_btn_offer"
+        android:text="GEt Offer" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="281dp"
+        android:layout_height="240dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="366dp"
+        app:srcCompat="@drawable/screenshot5" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="281dp"
+        android:layout_height="240dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="58dp"
+        android:layout_marginTop="9dp"
+        app:srcCompat="@drawable/screenshot5" />
+
 
 </RelativeLayout>
