@@ -40,7 +40,7 @@
                 android:id="@+id/viewfood1"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                app:srcCompat="@drawable/screenshot5" />
+                app:srcCompat="@drawable/homefood3" />
 
         </view>
 
@@ -68,7 +68,7 @@
                 android:layout_width="341dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="Kottu Roty"
+                android:text="Soup"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="30dp"
@@ -124,7 +124,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
-                android:text="300LKR"
+                android:text="270LKR"
                 android:textColor="@color/white"
 
                 android:textSize="20dp"
