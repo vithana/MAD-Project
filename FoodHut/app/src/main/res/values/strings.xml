@@ -24,6 +24,8 @@
     <string name="admin_offer">Offers</string>
     <string name="admin_add_product">Add Product</string>
     <string name="admin_add_offer">Add Offer</string>
+    <string name="email_address">Email Address</string>
+    <string name="customer_name">Customer Name</string>
 
     <string name="confirm_det">Confirm Details</string>
 

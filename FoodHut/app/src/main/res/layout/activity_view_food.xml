@@ -2,12 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_login"
-    tools:context=".UserGetOffer">
-
+    tools:context=".ViewFood">
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -24,7 +22,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="OFFER"
+            android:text="Item"
             android:fontFamily="@font/roboto_bolditalic"
             android:textAlignment="center"
             android:textColor="@color/white"
@@ -39,12 +37,10 @@
             android:background="@drawable/rounded_view_offer">
 
             <ImageView
-                android:id="@+id/imageView2"
+                android:id="@+id/viewfood1"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-
-
-                app:srcCompat="@drawable/screenshot5" />
+                app:srcCompat="@drawable/homefood3" />
 
         </view>
 
@@ -59,12 +55,7 @@
         android:layout_marginStart="26dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="28dp"
-<<<<<<< HEAD
-        android:gravity="center"
         android:background="@color/color_grey"
-=======
-        android:background="@color/purple"
->>>>>>> dev
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -77,7 +68,7 @@
                 android:layout_width="341dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="Offer 01"
+                android:text="Soup"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="30dp"
@@ -93,7 +84,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="72dp"
                 android:layout_marginEnd="218dp"
-                android:text="Item 01"
+                android:text="Normal"
                 android:textStyle="bold"
                 android:textColor="@color/white"
                 android:textSize="20dp"
@@ -108,7 +99,7 @@
                 android:layout_height="32dp"
                 android:layout_marginTop="14dp"
                 android:layout_marginEnd="137dp"
-                android:text="Item 04"
+                android:text="Large"
                 android:textStyle="bold"
                 android:textColor="@color/white"
                 android:textSize="20dp"
@@ -121,7 +112,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="16dp"
-                android:text="Total"
+                android:text="200LKR"
                 android:textColor="@color/white"
                 android:textSize="20dp"
                 android:textStyle="bold"
@@ -133,7 +124,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
-                android:text="300LKR"
+                android:text="270LKR"
                 android:textColor="@color/white"
 
                 android:textSize="20dp"
@@ -152,12 +143,11 @@
         android:layout_height="45dp"
         android:layout_marginTop="28dp"
         android:background="@drawable/rounded_btn_addtocart"
-        android:text="add to cart"
+        android:text="Buy Now!"
         android:textColor="@color/white"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
