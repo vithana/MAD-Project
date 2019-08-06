@@ -20,6 +20,10 @@
             android:id="@+id/nav_offer"
             android:icon="@drawable/ic_offers"
             android:title="Offers" />
+        <item
+            android:id="@+id/nav_user_profile"
+            android:icon="@drawable/user_profile"
+            android:title="Profile" />
     </group>
 
     <item android:title="Externals">
