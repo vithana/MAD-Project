@@ -58,6 +58,7 @@
         android:layout_height="wrap_content">
 
         <LinearLayout
+
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
@@ -165,9 +166,11 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
+                        android:id="@+id/kottu1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
+                        android:onClick="navFoodItem"
                         android:layout_marginTop="-8dp"
                         android:src="@drawable/food1" />
                 </RelativeLayout>
@@ -253,6 +256,9 @@
 
 
     </androidx.cardview.widget.CardView>
+
+
+
     <androidx.cardview.widget.CardView
         android:layout_marginTop="16dp"
         android:layout_width="match_parent"
