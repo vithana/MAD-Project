@@ -1,15 +1,192 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/bg_login">
 
-    <TextView
-        android:layout_width="wrap_content"
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="600dp">
+        <view
+            android:id="@+id/view2"
+            class="com.google.android.material.circularreveal.CircularRevealGridLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="204dp"
+            android:layout_margin="20dp"
+            android:background="@drawable/rounded_view_offer"
+            android:onClick="navigateToOffer">
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+
+
+                app:srcCompat="@drawable/screenshot5" />
+
+        </view>
+
+        <view
+            android:id="@+id/view5"
+            class="com.google.android.material.circularreveal.CircularRevealGridLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="204dp"
+
+            android:layout_below="@+id/view2"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/rounded_view_offer">
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+
+
+                app:srcCompat="@drawable/offer3" />
+
+        </view>
+
+    <Button
+        android:layout_width="377dp"
         android:layout_height="wrap_content"
-        android:text="Homeeeeee"
-        android:textSize="30sp"
-        android:layout_centerInParent="true"
-        android:textColor="@color/white"/>
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="462dp"
+        android:background="@drawable/rounded_btn_addtocart"
+        android:textColor="@color/white"
+        android:text="More OFFERS"/>
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="377dp"
+        android:layout_height="35dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="1553dp"
+        android:background="@drawable/rounded_btn_addtocart"
+        android:text="More FOODS"
+        android:textColor="@color/white"
+        android:layout_marginBottom="20dp"/>
+
+    <TextView
+        android:layout_width="1000dp"
+        android:layout_height="30dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="-1dp"
+        android:layout_marginTop="542dp"
+        android:text="MENU"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="25dp" />
+
+
+    <view
+        android:id="@+id/view6"
+        class="com.google.android.material.circularreveal.CircularRevealGridLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="204dp"
+
+        android:layout_below="@+id/view2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="396dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/rounded_view_offer">
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+
+
+            app:srcCompat="@drawable/foodhome1" />
+
+    </view>
+
+
+    <view
+        android:id="@+id/view7"
+        class="com.google.android.material.circularreveal.CircularRevealGridLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="204dp"
+
+        android:layout_below="@+id/view2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="621dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/rounded_view_offer">
+
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+
+
+            app:srcCompat="@drawable/homefood2" />
+
+    </view>
+
+    <view
+        android:id="@+id/view8"
+        class="com.google.android.material.circularreveal.CircularRevealGridLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="204dp"
+
+        android:layout_below="@+id/view2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="1068dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/rounded_view_offer">
+
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+
+
+            app:srcCompat="@drawable/foodhome4" />
+
+    </view>
+
+    <view
+        android:id="@+id/view9"
+        class="com.google.android.material.circularreveal.CircularRevealGridLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="204dp"
+
+        android:layout_below="@+id/view2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="847dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/rounded_view_offer">
+
+        <ImageView
+            android:id="@+id/imageView9"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+
+
+            app:srcCompat="@drawable/homefood3" />
+
+    </view>
 
 </RelativeLayout>
+
+
+</ScrollView>
