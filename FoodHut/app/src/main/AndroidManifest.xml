@@ -9,7 +9,7 @@
         android:roundIcon="@drawable/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-<<<<<<< HEAD
+
         <activity android:name=".ConfirmDeatils"
             android:theme="@style/AppTheme"></activity>
         <activity
@@ -19,14 +19,8 @@
             android:name=".UserGetOffer"
             android:parentActivityName=".Main2Activity"
             android:theme="@style/AppTheme" />
-=======
         <activity android:name=".ViewFood"
             android:theme="@style/AppTheme"></activity>
-        <activity
-            android:name=".UserGetOffer"
-            android:parentActivityName=".Main2Activity"
-            android:theme="@style/AppTheme.NoActionBar.NoActionBar" />
->>>>>>> dev
         <activity
             android:name=".AdminPanel"
             android:label="@string/title_activity_admin_panel"
