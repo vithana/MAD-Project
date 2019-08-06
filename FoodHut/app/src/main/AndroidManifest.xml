@@ -6,22 +6,34 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
+<<<<<<< HEAD
+        <activity android:name=".ConfirmDeatils"
+            android:theme="@style/AppTheme"></activity>
+        <activity
+            android:name=".DeliveryForm"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".UserGetOffer"
+            android:parentActivityName=".Main2Activity"
+            android:theme="@style/AppTheme" />
+=======
         <activity android:name=".ViewFood"
             android:theme="@style/AppTheme"></activity>
         <activity
             android:name=".UserGetOffer"
             android:parentActivityName=".Main2Activity"
             android:theme="@style/AppTheme.NoActionBar.NoActionBar" />
+>>>>>>> dev
         <activity
             android:name=".AdminPanel"
             android:label="@string/title_activity_admin_panel"
             android:theme="@style/AppTheme.NoActionBar.NoActionBar" />
         <activity
             android:name=".Main2Activity"
-            android:label="Home"
+            android:label="FoodHut"
             android:theme="@style/AppTheme.NoActionBar.NoActionBar" />
         <activity
             android:name=".SignUp"

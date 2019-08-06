@@ -5,23 +5,15 @@
     <color name="colorAccent">#D81B60</color>
     <color name="dark_blue">#000000</color>
     <color name="purple">#8F092F</color>
-
     <color name="dark_white">#D6D5D6</color>
-
     <color name="white">#fff</color>
     <color name="color_black">#1D1C1C</color>
-
     <color name="color_light_purple">#851335</color>
-
-
-
     <color name="color_grey">#24040F</color>
-
 
     <color name="login_form_details">#ccffffff</color>
     <color name="login_form_details_light">#1affffff</color>
     <color name="login_form_details_medium">#66ffffff</color>
-
     <color name="admin_bg">	#D3D3D3</color>
     <color name="food_view"> #EAA3A3</color>
 

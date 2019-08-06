@@ -42,18 +42,6 @@ public class CustomerFragment extends Fragment {
                 if (position ==  0) {
                     Toast.makeText( getActivity(), "Facebook Description", Toast.LENGTH_SHORT).show();
                 }
-                if (position ==  0) {
-                    Toast.makeText(getActivity(), "Whatsapp Description", Toast.LENGTH_SHORT).show();
-                }
-                if (position ==  0) {
-                    Toast.makeText(getActivity(), "Twitter Description", Toast.LENGTH_SHORT).show();
-                }
-                if (position ==  0) {
-                    Toast.makeText(getActivity(), "Instagram Description", Toast.LENGTH_SHORT).show();
-                }
-                if (position ==  0) {
-                    Toast.makeText(getActivity(), "Youtube Description", Toast.LENGTH_SHORT).show();
-                }
             }
         });
         return view;

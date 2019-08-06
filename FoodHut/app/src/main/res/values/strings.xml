@@ -27,4 +27,6 @@
     <string name="email_address">Email Address</string>
     <string name="customer_name">Customer Name</string>
 
+    <string name="confirm_det">Confirm Details</string>
+
 </resources>

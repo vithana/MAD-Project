@@ -22,7 +22,7 @@
             android:text="Proceed Now"
             android:textAllCaps="false"
             android:textStyle="bold"
-            android:onClick="navHome"
+            android:onClick="navDelivery"
             android:textColor="@color/login_form_details_medium"
             android:background="@drawable/bg_login"/>
 

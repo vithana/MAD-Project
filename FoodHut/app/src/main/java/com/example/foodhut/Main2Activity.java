@@ -1,5 +1,6 @@
 package com.example.foodhut;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -106,5 +107,11 @@ public class Main2Activity extends AppCompatActivity
         DrawerLayout drawer = findViewById(R.id.drawer_layout1);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+
+    public void navDelivery(View v) {
+        Intent i = new Intent(this, DeliveryForm.class);
+        startActivity(i);
     }
 }

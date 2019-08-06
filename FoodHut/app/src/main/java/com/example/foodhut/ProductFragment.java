@@ -1,6 +1,7 @@
 package com.example.foodhut;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -40,19 +41,8 @@ public class ProductFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (position ==  0) {
-                    Toast.makeText( getActivity(), "Facebook Description", Toast.LENGTH_SHORT).show();
-                }
-                if (position ==  0) {
-                    Toast.makeText(getActivity(), "Whatsapp Description", Toast.LENGTH_SHORT).show();
-                }
-                if (position ==  0) {
-                    Toast.makeText(getActivity(), "Twitter Description", Toast.LENGTH_SHORT).show();
-                }
-                if (position ==  0) {
-                    Toast.makeText(getActivity(), "Instagram Description", Toast.LENGTH_SHORT).show();
-                }
-                if (position ==  0) {
-                    Toast.makeText(getActivity(), "Youtube Description", Toast.LENGTH_SHORT).show();
+                    Intent i = new Intent(getActivity(), AdminAddNewProduct.class);
+                    startActivity(i);
                 }
             }
         });

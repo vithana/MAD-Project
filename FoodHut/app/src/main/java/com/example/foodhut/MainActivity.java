@@ -22,10 +22,6 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i);
     }
 
-
-
-
-
     public void navHome(View v) {
         textView = (TextView)findViewById(R.id.username);
         String check = textView.getText().toString();
