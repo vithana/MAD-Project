@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_login"
-    tools:context=".SignUp">
+    android:background="@drawable/bg_login">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_left"
@@ -21,113 +25,118 @@
         android:orientation="vertical"
         app:layout_constraintGuide_end="24dp" />
 
-    <ImageView
-        android:id="@+id/icon"
-        android:layout_width="200dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="80dp"
-        android:src="@drawable/ic_food"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_right"
-        app:layout_constraintStart_toStartOf="@+id/guideline_left"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
-        android:id="@+id/name"
+        android:id="@+id/foodTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/alex_brush"
-        android:text="Food Hut"
+        android:layout_marginTop="16dp"
+        android:text="Add New Product"
+        android:textStyle="italic"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="#F6F6FA"
-        android:textSize="60sp"
-        app:layout_constraintEnd_toStartOf="@+id/guideline_right"
-        app:layout_constraintStart_toStartOf="@+id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@+id/icon"
-        tools:layout_editor_absoluteX="117dp"
-        tools:layout_editor_absoluteY="189dp" />
+        android:textSize="40sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/food_name"
+        android:id="@+id/foodName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:inputType="text"
+        android:layout_marginTop="60dp"
         android:background="@drawable/et_bg"
         android:hint="Food Name"
-        android:textColorHint="@color/login_form_details"
+        android:inputType="textEmailAddress"
         android:padding="16dp"
+        android:textColorHint="@color/login_form_details"
         app:layout_constraintEnd_toStartOf="@id/guideline_right"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@+id/name" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView6" />
 
     <EditText
-        android:id="@+id/price"
+        android:id="@+id/foodPrice"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:inputType="text"
         android:background="@drawable/et_bg"
         android:hint="Price"
-        android:textColorHint="@color/login_form_details"
+        android:inputType="textEmailAddress"
         android:padding="16dp"
+        android:textColorHint="@color/login_form_details"
         app:layout_constraintEnd_toStartOf="@id/guideline_right"
         app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@+id/food_name" />
+        app:layout_constraintTop_toBottomOf="@+id/foodName" />
 
     <EditText
-        android:id="@+id/category"
+        android:id="@+id/foodCategory"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:inputType="text"
         android:background="@drawable/et_bg"
         android:hint="Category"
-        android:textColorHint="@color/login_form_details"
+        android:inputType="textPassword"
         android:padding="16dp"
+        android:textColorHint="@color/login_form_details"
 
         app:layout_constraintEnd_toStartOf="@id/guideline_right"
         app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@+id/price" />
+        app:layout_constraintTop_toBottomOf="@+id/foodPrice" />
 
     <EditText
-        android:id="@+id/potion"
+        android:id="@+id/foodPortion"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:inputType="text"
         android:background="@drawable/et_bg"
-        android:hint="potion"
-        android:textColorHint="@color/login_form_details"
+        android:hint="Portion"
+        android:inputType="textPassword"
         android:padding="16dp"
+        android:textColorHint="@color/login_form_details"
 
         app:layout_constraintEnd_toStartOf="@id/guideline_right"
         app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@+id/category" />
+        app:layout_constraintTop_toBottomOf="@+id/foodCategory" />
 
     <Button
-        android:id="@+id/sumbit1"
+        android:id="@+id/dsd"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="ADD +"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/btn_bg"
+        android:text="Add"
         android:textAllCaps="false"
         android:textColor="@color/login_form_details_medium"
-        android:background="@drawable/btn_bg"
         app:layout_constraintEnd_toStartOf="@+id/guideline_right"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@id/potion" />
+        app:layout_constraintTop_toBottomOf="@+id/foodPortion" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="287dp"
+        android:layout_height="118dp"
+        android:layout_marginTop="64dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/foodTitle"
+        app:srcCompat="@drawable/addnewofferphoto" />
 
     <TextView
+        android:id="@+id/food"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Welcome To Food Hut!"
-        android:textColor="@color/login_form_details"
-        android:textSize="16sp"
-        android:onClick="navigate"
-        app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintEnd_toStartOf="@id/guideline_right"
-        app:layout_constraintTop_toBottomOf="@id/sumbit1"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Photo"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/email"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
