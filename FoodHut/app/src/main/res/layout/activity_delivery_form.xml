@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_login"
-    tools:context=".MainActivity">
+    tools:context=".DeliveryForm"
+    android:background="@drawable/bg_login">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_left"
@@ -27,21 +26,20 @@
         android:layout_width="200dp"
         android:layout_height="100dp"
         android:layout_marginTop="80dp"
-        android:src="@drawable/ic_food"
+        android:src="@drawable/ic_fast_delivery"
         app:layout_constraintEnd_toStartOf="@+id/guideline_right"
         app:layout_constraintStart_toStartOf="@+id/guideline_left"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/name"
+        android:id="@+id/delTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:fontFamily="@font/alex_brush"
-        android:text="Food Hut"
+        android:text="Delivery Details"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="#F6F6FA"
-        android:textSize="60sp"
+        android:textSize="30sp"
         app:layout_constraintEnd_toStartOf="@+id/guideline_right"
         app:layout_constraintStart_toStartOf="@+id/guideline_left"
         app:layout_constraintTop_toBottomOf="@+id/icon"
@@ -49,59 +47,73 @@
         tools:layout_editor_absoluteY="189dp" />
 
     <EditText
-        android:id="@+id/username"
+        android:id="@+id/fullname"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:inputType="textEmailAddress"
         android:background="@drawable/et_bg"
-        android:hint="Email Address"
+        android:hint="Full Name"
         android:textColorHint="@color/login_form_details"
         android:padding="16dp"
         app:layout_constraintEnd_toStartOf="@id/guideline_right"
         app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@+id/name" />
+        app:layout_constraintTop_toBottomOf="@+id/delTitle" />
 
     <EditText
-        android:id="@+id/password"
+        android:id="@+id/phnNo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:inputType="textPassword"
         android:background="@drawable/et_bg"
-        android:hint="Password"
+        android:hint="Phone Number"
         android:textColorHint="@color/login_form_details"
         android:padding="16dp"
-        android:drawableRight="@drawable/ic_eye"
         app:layout_constraintEnd_toStartOf="@id/guideline_right"
         app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@+id/username" />
+        app:layout_constraintTop_toBottomOf="@+id/fullname" />
 
-    <Button
-        android:id="@+id/login_btn"
+    <EditText
+        android:id="@+id/streetAdd"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Login Now"
+        android:inputType="textPassword"
+        android:background="@drawable/et_bg"
+        android:hint="Street Address"
+        android:textColorHint="@color/login_form_details"
+        android:padding="16dp"
+        app:layout_constraintEnd_toStartOf="@id/guideline_right"
+        app:layout_constraintStart_toStartOf="@id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@+id/phnNo" />
+
+    <EditText
+        android:id="@+id/city"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:inputType="textPassword"
+        android:background="@drawable/et_bg"
+        android:hint="City"
+        android:textColorHint="@color/login_form_details"
+        android:padding="16dp"
+        app:layout_constraintEnd_toStartOf="@id/guideline_right"
+        app:layout_constraintStart_toStartOf="@id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@+id/streetAdd" />
+
+    <Button
+        android:id="@+id/delivery_btn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Save"
         android:textAllCaps="false"
         android:onClick="navHome"
         android:textColor="@color/login_form_details_medium"
         android:background="@drawable/btn_bg"
         app:layout_constraintEnd_toStartOf="@+id/guideline_right"
         app:layout_constraintStart_toStartOf="@+id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@id/password" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Still Not A Member?"
-        android:textColor="@color/login_form_details"
-        android:textSize="16sp"
-        android:onClick="navigate"
-        app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintEnd_toStartOf="@id/guideline_right"
-        app:layout_constraintTop_toBottomOf="@id/login_btn"
-        android:layout_marginTop="16dp"/>
-
+        app:layout_constraintTop_toBottomOf="@id/city" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
