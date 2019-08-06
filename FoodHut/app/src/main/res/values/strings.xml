@@ -22,5 +22,7 @@
     <string name="admin_product">Products</string>
     <string name="admin_order">Orders</string>
     <string name="admin_offer">Offers</string>
+    <string name="admin_add_product">Add Product</string>
+    <string name="admin_add_offer">Add Offer</string>
 
 </resources>
