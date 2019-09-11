@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:fontFamily="@font/alex_brush"
-        android:text="Food Hut"
+        android:text="@string/companyName"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="#F6F6FA"
         android:textSize="60sp"
@@ -54,7 +54,7 @@
         android:layout_marginTop="30dp"
         android:inputType="textEmailAddress"
         android:background="@drawable/et_bg"
-        android:hint="Email Address"
+        android:hint="@string/emailAdd"
         android:textColorHint="@color/login_form_details"
         android:padding="16dp"
         app:layout_constraintEnd_toStartOf="@id/guideline_right"
@@ -68,7 +68,7 @@
         android:layout_marginTop="16dp"
         android:inputType="textEmailAddress"
         android:background="@drawable/et_bg"
-        android:hint="UserName"
+        android:hint="@string/userName"
         android:textColorHint="@color/login_form_details"
         android:padding="16dp"
         app:layout_constraintEnd_toStartOf="@id/guideline_right"
@@ -76,13 +76,13 @@
         app:layout_constraintTop_toBottomOf="@+id/email" />
 
     <EditText
-        android:id="@+id/telephone"
+        android:id="@+id/pwd"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:inputType="textPassword"
         android:background="@drawable/et_bg"
-        android:hint="Password"
+        android:hint="@string/password"
         android:textColorHint="@color/login_form_details"
         android:padding="16dp"
         android:drawableRight="@drawable/ic_eye"
@@ -91,43 +91,43 @@
         app:layout_constraintTop_toBottomOf="@+id/username" />
 
     <EditText
-        android:id="@+id/address"
+        android:id="@+id/cPwd"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:inputType="textPassword"
         android:background="@drawable/et_bg"
-        android:hint="Confirm Password"
+        android:hint="@string/cpwd"
         android:textColorHint="@color/login_form_details"
         android:padding="16dp"
         android:drawableRight="@drawable/ic_eye"
         app:layout_constraintEnd_toStartOf="@id/guideline_right"
         app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@+id/telephone" />
+        app:layout_constraintTop_toBottomOf="@+id/pwd" />
 
     <Button
-        android:id="@+id/login_btn"
+        android:id="@+id/signup_btn"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Register Now"
+        android:text="@string/regBtn"
         android:textAllCaps="false"
         android:textColor="@color/login_form_details_medium"
         android:background="@drawable/btn_bg"
         app:layout_constraintEnd_toStartOf="@+id/guideline_right"
         app:layout_constraintStart_toStartOf="@+id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@id/address" />
+        app:layout_constraintTop_toBottomOf="@id/cPwd" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Alreday A Member?"
+        android:text="@string/member"
         android:textColor="@color/login_form_details"
         android:textSize="16sp"
         android:onClick="navigate"
         app:layout_constraintStart_toStartOf="@id/guideline_left"
         app:layout_constraintEnd_toStartOf="@id/guideline_right"
-        app:layout_constraintTop_toBottomOf="@id/login_btn"
+        app:layout_constraintTop_toBottomOf="@id/signup_btn"
         android:layout_marginTop="16dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

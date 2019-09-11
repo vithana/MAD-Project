@@ -29,4 +29,15 @@
 
     <string name="confirm_det">Confirm Details</string>
 
+    <!--Logo-->
+    <string name="companyName">Food Hut</string>
+
+    <!--Sign Up-->
+    <string name="emailAdd">Email Address</string>
+    <string name="userName">Username</string>
+    <string name="password">Password</string>
+    <string name="cpwd">Confirm Password</string>
+    <string name="regBtn">Register Now</string>
+    <string name="member">Already A Member</string>
+
 </resources>
