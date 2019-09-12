@@ -1,7 +1,9 @@
 package com.example.foodhut;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,8 +12,11 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.foodhut.database.User;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
@@ -24,6 +29,8 @@ public class SignUp extends AppCompatActivity {
     Button btn;
     DatabaseReference db;
     User user;
+
+    private ProgressDialog dialog = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,10 +48,12 @@ public class SignUp extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-
                 if (pwd.getText().toString().equalsIgnoreCase(cPwd.getText().toString())) {
 
-                    db = FirebaseDatabase.getInstance().getReference().child("User");
+                    db = FirebaseDatabase.getInstance().getReference("users");
+
+                    dialog = new ProgressDialog(SignUp.this);
+                    dialog.setMessage("Please Wait");
 
                     try {
                         user.setEmail(email.getText().toString().trim());
@@ -54,9 +63,10 @@ public class SignUp extends AppCompatActivity {
 
                         user.setPassword(hashPwd);
 
-                        db.child("userkey").setValue(user);
+                        dialog.show();
 
-                        Toast.makeText(getApplicationContext(), "Successfully Signed Up", Toast.LENGTH_SHORT).show();
+                        submit(user.getUserName());
+
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -95,4 +105,26 @@ public class SignUp extends AppCompatActivity {
 
         return hexString.toString();
     }
+
+    private void submit(final String id) {
+        db.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(dataSnapshot.child(id).exists()){
+                    dialog.dismiss();
+                    Toast.makeText(getApplicationContext(), "Username is already exists", Toast.LENGTH_SHORT).show();
+                } else {
+                    db.child(user.getUserName()).setValue(user);
+                    dialog.dismiss();
+                    Toast.makeText(getApplicationContext(), "Successfully Signed Up", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
+
 }

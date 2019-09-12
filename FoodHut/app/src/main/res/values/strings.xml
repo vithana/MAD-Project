@@ -40,4 +40,8 @@
     <string name="regBtn">Register Now</string>
     <string name="member">Already A Member</string>
 
+    <!--Login-->
+    <string name="loginBtn">Login</string>
+    <string name="logMem">Still Not A Member?</string>
+
 </resources>
