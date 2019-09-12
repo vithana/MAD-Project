@@ -38,7 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:fontFamily="@font/alex_brush"
-        android:text="Food Hut"
+        android:text="@string/companyName"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="#F6F6FA"
         android:textSize="60sp"
@@ -49,13 +49,13 @@
         tools:layout_editor_absoluteY="189dp" />
 
     <EditText
-        android:id="@+id/username"
+        android:id="@+id/login_username"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:inputType="textEmailAddress"
         android:background="@drawable/et_bg"
-        android:hint="Email Address"
+        android:hint="@string/userName"
         android:textColorHint="@color/login_form_details"
         app:backgroundTint="@color/white"
         android:padding="16dp"
@@ -64,39 +64,38 @@
         app:layout_constraintTop_toBottomOf="@+id/name" />
 
     <EditText
-        android:id="@+id/telephone"
+        android:id="@+id/pass"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:inputType="textPassword"
         android:background="@drawable/et_bg"
-        android:hint="Password"
+        android:hint="@string/password"
         android:textColorHint="@color/login_form_details"
         app:backgroundTint="@color/white"
         android:padding="16dp"
         android:drawableRight="@drawable/ic_eye"
         app:layout_constraintEnd_toStartOf="@id/guideline_right"
         app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@+id/username" />
+        app:layout_constraintTop_toBottomOf="@+id/login_username" />
 
     <Button
         android:id="@+id/login_btn"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Login Now"
+        android:text="@string/loginBtn"
         android:textAllCaps="false"
-        android:onClick="navHome"
         android:textColor="@color/login_form_details_medium"
         android:background="@drawable/btn_bg"
         app:layout_constraintEnd_toStartOf="@+id/guideline_right"
         app:layout_constraintStart_toStartOf="@+id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@id/telephone" />
+        app:layout_constraintTop_toBottomOf="@id/pass" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Still Not A Member?"
+        android:text="@string/logMem"
         android:textColor="@color/login_form_details"
         android:textSize="16sp"
         android:onClick="navigate"
