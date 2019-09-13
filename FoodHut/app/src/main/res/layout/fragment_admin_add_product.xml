@@ -44,16 +44,16 @@
         android:id="@+id/foodName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="30dp"
         android:background="@drawable/et_bg"
         android:hint="Food Name"
-        android:inputType="textEmailAddress"
+        android:inputType="text"
         android:padding="16dp"
         android:textColorHint="@color/login_form_details"
         app:layout_constraintEnd_toStartOf="@id/guideline_right"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+        app:layout_constraintTop_toBottomOf="@+id/chooseFood" />
 
     <EditText
         android:id="@+id/foodPrice"
@@ -62,7 +62,7 @@
         android:layout_marginTop="16dp"
         android:background="@drawable/et_bg"
         android:hint="Price"
-        android:inputType="textEmailAddress"
+        android:inputType="number"
         android:padding="16dp"
         android:textColorHint="@color/login_form_details"
         app:layout_constraintEnd_toStartOf="@id/guideline_right"
@@ -76,7 +76,7 @@
         android:layout_marginTop="16dp"
         android:background="@drawable/et_bg"
         android:hint="Category"
-        android:inputType="textPassword"
+        android:inputType="text"
         android:padding="16dp"
         android:textColorHint="@color/login_form_details"
 
@@ -91,7 +91,7 @@
         android:layout_marginTop="16dp"
         android:background="@drawable/et_bg"
         android:hint="Portion"
-        android:inputType="textPassword"
+        android:inputType="text"
         android:padding="16dp"
         android:textColorHint="@color/login_form_details"
 
@@ -100,7 +100,7 @@
         app:layout_constraintTop_toBottomOf="@+id/foodCategory" />
 
     <Button
-        android:id="@+id/dsd"
+        android:id="@+id/foodAdd"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -114,7 +114,7 @@
         app:layout_constraintTop_toBottomOf="@+id/foodPortion" />
 
     <ImageView
-        android:id="@+id/imageView6"
+        android:id="@+id/addFoodImage"
         android:layout_width="287dp"
         android:layout_height="118dp"
         android:layout_marginTop="64dp"
@@ -123,20 +123,22 @@
         app:layout_constraintTop_toTopOf="@+id/foodTitle"
         app:srcCompat="@drawable/addnewofferphoto" />
 
-    <TextView
-        android:id="@+id/food"
+    <Button
+        android:id="@+id/chooseFood"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="12dp"
         android:layout_marginBottom="8dp"
-        android:text="Photo"
-        android:textColor="@color/white"
+        android:background="@drawable/btn_bg"
+        android:text="Choose"
+        android:textAllCaps="false"
+        android:textColor="@color/login_form_details_medium"
         android:textSize="20dp"
         app:layout_constraintBottom_toTopOf="@+id/email"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+        app:layout_constraintTop_toBottomOf="@+id/addFoodImage" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>

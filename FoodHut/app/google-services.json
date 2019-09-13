@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "804746251373-0sf905t1sq43kscfs0n2nqg63ki411kt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.foodhut",
+            "certificate_hash": "5fb506fa4075e464fce4c0eb3557748a9b43839f"
+          }
+        },
+        {
           "client_id": "804746251373-m92b6s9fj25v2k26bb8hnnan35d6uikt.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
