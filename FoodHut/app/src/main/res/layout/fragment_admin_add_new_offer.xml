@@ -22,11 +22,11 @@
         app:layout_constraintGuide_end="24dp" />
 
     <TextView
-        android:id="@+id/name"
+        android:id="@+id/offerTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Add New Offer"
+        android:text="@string/addOfferTitle"
         android:textStyle="italic"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="#F6F6FA"
@@ -37,87 +37,90 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/email"
+        android:id="@+id/offerName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
         android:background="@drawable/et_bg"
-        android:hint="Offer Name"
-        android:inputType="textEmailAddress"
+        android:hint="@string/offerName"
+        android:inputType="text"
         android:padding="16dp"
         android:textColorHint="@color/login_form_details"
         app:layout_constraintEnd_toStartOf="@id/guideline_right"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+        app:layout_constraintTop_toBottomOf="@+id/offerImage" />
 
     <EditText
-        android:id="@+id/username"
+        android:id="@+id/offerDescription"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:background="@drawable/et_bg"
-        android:hint="Descirption"
-        android:inputType="textEmailAddress"
+        android:hint="@string/offerDescription"
+        android:inputType="text"
         android:padding="16dp"
         android:textColorHint="@color/login_form_details"
         app:layout_constraintEnd_toStartOf="@id/guideline_right"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@+id/email" />
+        app:layout_constraintTop_toBottomOf="@+id/offerName" />
 
     <EditText
-        android:id="@+id/telephone"
+        android:id="@+id/offerPrice"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:background="@drawable/et_bg"
-        android:hint="Total Price"
-        android:inputType="textPassword"
+        android:hint="@string/offerPrice"
+        android:inputType="number"
         android:padding="16dp"
         android:textColorHint="@color/login_form_details"
-
         app:layout_constraintEnd_toStartOf="@id/guideline_right"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@+id/username" />
+        app:layout_constraintTop_toBottomOf="@+id/offerDescription" />
 
     <Button
-        android:id="@+id/dsd"
+        android:id="@+id/offerAdd"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:background="@drawable/btn_bg"
-        android:text="Add"
+        android:text="@string/productAdd"
         android:textAllCaps="false"
         android:textColor="@color/login_form_details_medium"
         app:layout_constraintEnd_toStartOf="@+id/guideline_right"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@+id/telephone" />
+        app:layout_constraintTop_toBottomOf="@+id/offerPrice" />
 
     <ImageView
-        android:id="@+id/imageView6"
+        android:id="@+id/offerImage"
         android:layout_width="287dp"
         android:layout_height="118dp"
         android:layout_marginTop="64dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/name"
+        app:layout_constraintTop_toTopOf="@+id/offerTitle"
         app:srcCompat="@drawable/addnewofferphoto" />
 
-    <TextView
-        android:id="@+id/textView2"
+    <Button
+        android:id="@+id/chooseOffer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="12dp"
         android:layout_marginBottom="8dp"
-        android:text="Photo"
-        android:textColor="@color/white"
+        android:background="@drawable/btn_bg"
+        android:text="@string/productPhoto"
+        android:textAllCaps="false"
+        android:textColor="@color/login_form_details_medium"
         android:textSize="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/email"
+        app:layout_constraintBottom_toTopOf="@+id/offerName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+        app:layout_constraintTop_toBottomOf="@+id/offerImage" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

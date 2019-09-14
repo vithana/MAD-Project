@@ -1,7 +1,9 @@
 package com.example.foodhut;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,23 +19,73 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.bumptech.glide.Glide;
+import com.example.foodhut.database.Offer;
+import com.example.foodhut.database.Product;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+
+import java.util.ArrayList;
+
 public class OfferFragment extends Fragment {
 
-    private ListView listView;
-    String mTitle[] = {"Offer 1", "Offer 2", "Offer 3", "Offer 4", "Offer 5", "Offer 6", "Offer 7", "Offer 8"};
-    String mDescription[] = {"Price: Rs.1500", "Price: Rs.2500", "Price: Rs.1300", "Price: Rs.500", "Price: Rs.1700", "Price: Rs.2500", "Price: Rs.2800", "Price: Rs.3500"};
-    int images[] = {R.drawable.burger, R.drawable.sandwitch, R.drawable.chicken, R.drawable.stake, R.drawable.cupcake, R.drawable.pizza, R.drawable.spawn, R.drawable.sphagetti};
-
+    private Offer offer;
+    private ProgressDialog dialog = null;
+    DatabaseReference db;
+    ArrayList<Offer> list = new ArrayList<>();
+    ListView listView;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_offer, container, false);
+        db = FirebaseDatabase.getInstance().getReference("offers");
+
+        dialog = new ProgressDialog(getActivity());
+        dialog.setMessage("Please Wait");
 
         listView = (ListView)view.findViewById(R.id.admin_list_offer);
 
-        OfferFragment.MyAdapter adapter = new OfferFragment.MyAdapter(getActivity(), mTitle, mDescription, images);
+        final OfferFragment.MyAdapter adapter = new OfferFragment.MyAdapter(getActivity(), list);
+
+        db.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                offer = dataSnapshot.getValue(Offer.class);
+                list.add(offer);
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+        dialog.show();
         listView.setAdapter(adapter);
 
         // now set item click on list view
@@ -50,20 +102,10 @@ public class OfferFragment extends Fragment {
         return view;
     }
 
-    class MyAdapter extends ArrayAdapter<String> {
+    class MyAdapter extends ArrayAdapter<Offer> {
 
-        Context context;
-        String rTitle[];
-        String rDescription[];
-        int rImgs[];
-
-        MyAdapter (Context c, String title[], String description[], int imgs[]) {
-            super(c, R.layout.offer_row, R.id.offerTextView1, title);
-            this.context = c;
-            this.rTitle = title;
-            this.rDescription = description;
-            this.rImgs = imgs;
-
+        MyAdapter (Context c, ArrayList<Offer> of) {
+            super(c, R.layout.offer_row, of);
         }
 
         @NonNull
@@ -71,14 +113,31 @@ public class OfferFragment extends Fragment {
         public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
             LayoutInflater layoutInflater = (LayoutInflater)getActivity().getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             View row = layoutInflater.inflate(R.layout.offer_row, parent, false);
-            ImageView images = row.findViewById(R.id.offerImage);
-            TextView myTitle = row.findViewById(R.id.offerTextView1);
-            TextView myDescription = row.findViewById(R.id.offerTextView2);
+            final ImageView images = row.findViewById(R.id.offerImage1);
+            final TextView myTitle = row.findViewById(R.id.offerTextView1);
+            final TextView myDescription = row.findViewById(R.id.offerTextView2);
 
-            // now set our resources on views
-            images.setImageResource(rImgs[position]);
-            myTitle.setText(rTitle[position]);
-            myDescription.setText(rDescription[position]);
+            final Offer f = getItem(position);
+
+            StorageReference ref = FirebaseStorage.getInstance().getReference("offers");
+
+            ref.child(f.getImageId()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                @Override
+                public void onSuccess(Uri uri) {
+                    // Got the download URL for 'users/me/profile.png'
+                    Glide.with(OfferFragment.this).load(uri.toString()).centerCrop().into(images);
+                    myTitle.setText(f.getOfferName());
+                    String m = String.valueOf(f.getPrice());
+                    myDescription.setText("Price Rs. " + m);
+
+                    dialog.dismiss();
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception exception) {
+                    // Handle any errors
+                }
+            });
 
             return row;
         }

@@ -53,4 +53,10 @@
     <string name="productPhoto">Choose</string>
     <string name="productAdd">Add</string>
 
+    <!--Add New Offer-->
+    <string name="addOfferTitle">Add New Offer</string>
+    <string name="offerName">Offer Name</string>
+    <string name="offerDescription">Description</string>
+    <string name="offerPrice">Total Price</string>
+
 </resources>
