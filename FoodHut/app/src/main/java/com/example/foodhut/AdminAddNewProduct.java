@@ -112,9 +112,9 @@ public class AdminAddNewProduct extends Fragment {
                     @Override
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                         // Get a URL to the uploaded content
-                        //Uri downloadUrl = taskSnapshot.getDownloadUrl();
+                        // downloadUrl = taskSnapshot.getDownloadUrl();
                         dialog.dismiss();
-                        Toast.makeText(getActivity().getApplicationContext(), "Upload Successfull", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity().getApplicationContext(), "Added Successfully", Toast.LENGTH_SHORT).show();
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
