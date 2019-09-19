@@ -92,10 +92,7 @@ public class OfferFragment extends Fragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (position ==  0) {
-                    Intent i = new Intent(getActivity(), AdminAddNewOffer.class);
-                    startActivity(i);
-                }
+
             }
         });
 

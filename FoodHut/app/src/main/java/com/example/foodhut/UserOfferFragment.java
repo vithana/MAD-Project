@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -49,7 +50,7 @@ public class UserOfferFragment extends Fragment  {
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull final LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_user_offer, container, false);
         db = FirebaseDatabase.getInstance().getReference("offers");
@@ -101,10 +102,8 @@ public class UserOfferFragment extends Fragment  {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (position ==  0) {
-                    Intent i = new Intent(getActivity(), AdminAddNewOffer.class);
-                    startActivity(i);
-                }
+                TextView textView = (TextView) view.findViewById(R.id.offerTextView1);
+                navigatePage(textView.getText().toString().trim());
             }
         });
 
@@ -150,5 +149,11 @@ public class UserOfferFragment extends Fragment  {
 
             return row;
         }
+    }
+
+    public void navigatePage(String id) {
+        Intent intent = new Intent(getActivity(), UserOfferDetails.class);
+        intent.putExtra("offer_name", id);
+        startActivity(intent);
     }
 }
