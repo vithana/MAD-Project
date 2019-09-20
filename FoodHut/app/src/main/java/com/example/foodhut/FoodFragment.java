@@ -95,7 +95,8 @@ public class FoodFragment extends Fragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getActivity().getApplicationContext(), "Test", Toast.LENGTH_SHORT).show();
+                TextView textView = (TextView) view.findViewById(R.id.productTextView1);
+                navigatePage(textView.getText().toString().trim());
             }
         });
 
@@ -142,4 +143,11 @@ public class FoodFragment extends Fragment {
             return row;
         }
     }
+
+    public void navigatePage(String id) {
+        Intent intent = new Intent(getActivity(), UserProductDetails.class);
+        intent.putExtra("product_name", id);
+        startActivity(intent);
+    }
+
 }
