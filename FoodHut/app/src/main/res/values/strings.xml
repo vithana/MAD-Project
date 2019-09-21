@@ -46,6 +46,7 @@
 
     <!--Add New Product-->
     <string name="addProductTitle">Add New Product</string>
+    <string name="editProductTitle">Edit Product</string>
     <string name="productName">Food Name</string>
     <string name="productPrice">Price</string>
     <string name="productCategory">Category</string>

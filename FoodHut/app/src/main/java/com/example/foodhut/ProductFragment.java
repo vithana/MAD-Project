@@ -3,18 +3,19 @@ package com.example.foodhut;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.DisplayMetrics;
+import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,8 +34,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.UploadTask;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -62,6 +61,7 @@ public class ProductFragment extends Fragment {
         db.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
                 product = dataSnapshot.getValue(Product.class);
                 list.add(product);
                 adapter.notifyDataSetChanged();
@@ -69,12 +69,20 @@ public class ProductFragment extends Fragment {
 
             @Override
             public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
+                adapter.notifyDataSetChanged();
             }
 
             @Override
             public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
-
+//                Product product1 = dataSnapshot.getValue(Product.class);
+//                list.remove(product1);
+//                list.clear();
+//
+//                ProductFragment pf = (ProductFragment) getActivity().getSupportFragmentManager().getFragments().get(0);
+//                final FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+//                ft.detach(pf);
+//                ft.attach(pf);
+//                ft.commit();
             }
 
             @Override
@@ -89,13 +97,15 @@ public class ProductFragment extends Fragment {
         });
 
         dialog.show();
+
         listView.setAdapter(adapter);
 
         // now set item click on list view
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getActivity().getApplicationContext(), "Test", Toast.LENGTH_SHORT).show();
+                TextView textview1 = (TextView) view.findViewById(R.id.productTextView1);
+                showPopup(view, textview1.getText().toString().trim());
             }
         });
 
@@ -142,4 +152,35 @@ public class ProductFragment extends Fragment {
             return row;
         }
     }
+
+    public void showPopup(View v, final String itemId) {
+        PopupMenu popup = new PopupMenu(getActivity(), v);
+        MenuInflater inflater = popup.getMenuInflater();
+
+        popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+                if (menuItem.getItemId() == R.id.edit) {
+                    Intent intent = new Intent(getActivity(), EditProduct.class);
+                    intent.putExtra("product_id", itemId);
+                    startActivity(intent);
+                } else if (menuItem.getItemId() == R.id.delete) {
+                    DatabaseReference temp = FirebaseDatabase.getInstance().getReference("products").child(itemId);
+                    temp.removeValue();
+                    Toast.makeText(getActivity().getApplicationContext(), "Success", Toast.LENGTH_SHORT).show();
+
+                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ProductFragment()).commit();
+                } else {
+                    return false;
+                }
+                return true;
+            }
+        });
+
+        inflater.inflate(R.menu.list_menu, popup.getMenu());
+        popup.setGravity(Gravity.END);
+        popup.show();
+    }
 }
+
+
