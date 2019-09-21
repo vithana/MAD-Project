@@ -5,13 +5,17 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -66,7 +70,7 @@ public class OfferFragment extends Fragment {
 
             @Override
             public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
+                adapter.notifyDataSetChanged();
             }
 
             @Override
@@ -92,7 +96,8 @@ public class OfferFragment extends Fragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+                TextView textview1 = (TextView) view.findViewById(R.id.offerTextView1);
+                showPopup(view, textview1.getText().toString().trim());
             }
         });
 
@@ -138,5 +143,34 @@ public class OfferFragment extends Fragment {
 
             return row;
         }
+    }
+
+    public void showPopup(View v, final String itemId) {
+        PopupMenu popup = new PopupMenu(getActivity(), v);
+        MenuInflater inflater = popup.getMenuInflater();
+
+        popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+                if (menuItem.getItemId() == R.id.edit) {
+                    Intent intent = new Intent(getActivity(), EditOffer.class);
+                    intent.putExtra("offer_id", itemId);
+                    startActivity(intent);
+                } else if (menuItem.getItemId() == R.id.delete) {
+                    DatabaseReference temp = FirebaseDatabase.getInstance().getReference("offers").child(itemId);
+                    temp.removeValue();
+                    Toast.makeText(getActivity().getApplicationContext(), "Successfully Deleted", Toast.LENGTH_SHORT).show();
+
+                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new OfferFragment()).commit();
+                } else {
+                    return false;
+                }
+                return true;
+            }
+        });
+
+        inflater.inflate(R.menu.list_menu, popup.getMenu());
+        popup.setGravity(Gravity.END);
+        popup.show();
     }
 }

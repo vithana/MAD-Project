@@ -15,8 +15,18 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar"
         tools:replace="android:theme">
-        <activity android:name=".UserProductDetails"></activity>
-        <activity android:name=".UserOfferDetails" />
+        <activity
+            android:name=".UserProductDetails"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".UserOfferDetails"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".EditOffer"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".EditProduct"
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".ConfirmDeatils"
             android:theme="@style/AppTheme" />
