@@ -153,8 +153,8 @@ public class OfferFragment extends Fragment {
             @Override
             public boolean onMenuItemClick(MenuItem menuItem) {
                 if (menuItem.getItemId() == R.id.edit) {
-                    Intent intent = new Intent(getActivity(), EditProduct.class);
-                    intent.putExtra("product_id", itemId);
+                    Intent intent = new Intent(getActivity(), EditOffer.class);
+                    intent.putExtra("offer_id", itemId);
                     startActivity(intent);
                 } else if (menuItem.getItemId() == R.id.delete) {
                     DatabaseReference temp = FirebaseDatabase.getInstance().getReference("offers").child(itemId);

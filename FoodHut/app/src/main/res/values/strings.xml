@@ -53,6 +53,7 @@
     <string name="productPortion">Portion</string>
     <string name="productPhoto">Choose</string>
     <string name="productAdd">Add</string>
+    <string name="productEdit">Update</string>
 
     <!--Add New Offer-->
     <string name="addOfferTitle">Add New Offer</string>
