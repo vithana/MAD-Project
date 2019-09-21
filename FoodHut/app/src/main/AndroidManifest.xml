@@ -14,6 +14,7 @@
         android:roundIcon="@drawable/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar"
+        xmlns:tools="http://schemas.android.com/tools"
         tools:replace="android:theme">
         <activity
             android:name=".UserProductDetails"
