@@ -56,7 +56,7 @@ public class OfferFragment extends Fragment {
         dialog = new ProgressDialog(getActivity());
         dialog.setMessage("Please Wait");
 
-        listView = (ListView)view.findViewById(R.id.admin_list_offer);
+        listView = (ListView)view.findViewById(R.id.user_list_food);
 
         final OfferFragment.MyAdapter adapter = new OfferFragment.MyAdapter(getActivity(), list);
 
