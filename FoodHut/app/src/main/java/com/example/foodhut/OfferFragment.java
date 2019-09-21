@@ -159,7 +159,7 @@ public class OfferFragment extends Fragment {
                 } else if (menuItem.getItemId() == R.id.delete) {
                     DatabaseReference temp = FirebaseDatabase.getInstance().getReference("offers").child(itemId);
                     temp.removeValue();
-                    Toast.makeText(getActivity().getApplicationContext(), "Success", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity().getApplicationContext(), "Successfully Deleted", Toast.LENGTH_SHORT).show();
 
                     getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new OfferFragment()).commit();
                 } else {

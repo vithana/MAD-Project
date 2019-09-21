@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.foodhut.database.Common;
 import com.example.foodhut.database.User;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -74,19 +75,6 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i);
     }
 
-    public void navHome(View v) {
-        textView = (TextView)findViewById(R.id.username);
-        String check = textView.getText().toString();
-
-        if (check.equalsIgnoreCase("admin")) {
-            Intent i = new Intent(this, Main2Activity.class);
-            startActivity(i);
-        } else if (check.equalsIgnoreCase("admin")) {
-            Intent i = new Intent(this, AdminPanel.class);
-            startActivity(i);
-        }
-    }
-
     public static byte[] getSHA(String input) throws NoSuchAlgorithmException {
         // Static getInstance method is called with hashing SHA
         MessageDigest md = MessageDigest.getInstance("SHA-256");
@@ -119,11 +107,7 @@ public class MainActivity extends AppCompatActivity {
                         User user1=dataSnapshot.child(id).getValue(User.class);
                         if (user1.getPassword().equals(password)){
                             Toast.makeText(getApplicationContext(),"Login Success",Toast.LENGTH_LONG).show();
-
-                            sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-                            SharedPreferences.Editor editor = sharedPreferences.edit();
-                            editor.putString("user_name", user1.getUserName());
-                            editor.commit();
+                            Common.loggedUser = user1;
 
                             if (user1.getUserName().equalsIgnoreCase("admin")) {
                                 Intent intphto =new Intent(getApplicationContext(), AdminPanel.class);

@@ -61,4 +61,11 @@
     <string name="offerDescription">Description</string>
     <string name="offerPrice">Total Price</string>
 
+    <!--User Profile-->
+    <string name="cusTitle">Customer Name</string>
+    <string name="cusEmail">Email Address</string>
+    <string name="cusFullName">Full Name</string>
+    <string name="cusTel">Telephone</string>
+    <string name="cusAdd">Address</string>
+
 </resources>

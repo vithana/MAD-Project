@@ -6,13 +6,6 @@
     android:layout_height="match_parent"
     android:background="@drawable/bg_login">
 
-
-
-
-
-
-
-
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_left"
         android:layout_width="wrap_content"
@@ -44,7 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:fontFamily="@font/alex_brush"
-        android:text="@string/customer_name"
+        android:text="@string/cusTitle"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="#F6F6FA"
         android:textSize="50sp"
@@ -58,7 +51,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:background="@drawable/et_bg"
-        android:hint="@string/email_address"
+        android:hint="@string/cusEmail"
         android:inputType="textEmailAddress"
         android:padding="16dp"
         android:textColorHint="@color/login_form_details"
@@ -67,13 +60,13 @@
         app:layout_constraintTop_toBottomOf="@+id/name" />
 
     <EditText
-        android:id="@+id/username"
+        android:id="@+id/customerName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:inputType="textEmailAddress"
+        android:inputType="text"
         android:background="@drawable/et_bg"
-        android:hint="User Name"
+        android:hint="@string/cusFullName"
         android:textColorHint="@color/login_form_details"
         android:padding="16dp"
         app:layout_constraintEnd_toStartOf="@id/guideline_right"
@@ -85,24 +78,23 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:inputType="textPassword"
+        android:inputType="number"
         android:background="@drawable/et_bg"
-        android:hint="Telephone"
+        android:hint="@string/cusTel"
         android:textColorHint="@color/login_form_details"
         android:padding="16dp"
-
         app:layout_constraintEnd_toStartOf="@id/guideline_right"
         app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@+id/username" />
+        app:layout_constraintTop_toBottomOf="@+id/customerName" />
 
     <EditText
         android:id="@+id/address"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:inputType="textPassword"
+        android:inputType="text"
         android:background="@drawable/et_bg"
-        android:hint="Address"
+        android:hint="@string/cusAdd"
         android:textColorHint="@color/login_form_details"
         android:padding="16dp"
         app:layout_constraintEnd_toStartOf="@id/guideline_right"
@@ -110,22 +102,17 @@
         app:layout_constraintTop_toBottomOf="@+id/telephone" />
 
     <Button
-        android:id="@+id/login_btn"
+        android:id="@+id/update_btn"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Update"
+        android:text="@string/productEdit"
         android:textAllCaps="false"
         android:textColor="@color/login_form_details_medium"
         android:background="@drawable/btn_bg"
         app:layout_constraintEnd_toStartOf="@+id/guideline_right"
         app:layout_constraintStart_toStartOf="@+id/guideline_left"
         app:layout_constraintTop_toBottomOf="@id/address" />
-
-
-
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

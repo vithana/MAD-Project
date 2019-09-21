@@ -18,11 +18,9 @@ import android.widget.ListView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-
 import com.bumptech.glide.Glide;
 import com.example.foodhut.database.Product;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -167,7 +165,7 @@ public class ProductFragment extends Fragment {
                 } else if (menuItem.getItemId() == R.id.delete) {
                     DatabaseReference temp = FirebaseDatabase.getInstance().getReference("products").child(itemId);
                     temp.removeValue();
-                    Toast.makeText(getActivity().getApplicationContext(), "Success", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity().getApplicationContext(), "Successfully Deleted", Toast.LENGTH_SHORT).show();
 
                     getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ProductFragment()).commit();
                 } else {
