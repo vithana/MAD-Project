@@ -46,17 +46,26 @@
 
     <!--Add New Product-->
     <string name="addProductTitle">Add New Product</string>
+    <string name="editProductTitle">Edit Product</string>
     <string name="productName">Food Name</string>
     <string name="productPrice">Price</string>
     <string name="productCategory">Category</string>
     <string name="productPortion">Portion</string>
     <string name="productPhoto">Choose</string>
     <string name="productAdd">Add</string>
+    <string name="productEdit">Update</string>
 
     <!--Add New Offer-->
     <string name="addOfferTitle">Add New Offer</string>
     <string name="offerName">Offer Name</string>
     <string name="offerDescription">Description</string>
     <string name="offerPrice">Total Price</string>
+
+    <!--User Profile-->
+    <string name="cusTitle">Customer Name</string>
+    <string name="cusEmail">Email Address</string>
+    <string name="cusFullName">Full Name</string>
+    <string name="cusTel">Telephone</string>
+    <string name="cusAdd">Address</string>
 
 </resources>
