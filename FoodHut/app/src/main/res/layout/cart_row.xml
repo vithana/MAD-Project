@@ -59,6 +59,17 @@
             android:id="@+id/cartTextView2"
             />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ID"
+            android:textColor="#a9a9a9"
+            android:textStyle="bold"
+            android:layout_marginTop="1dp"
+            android:textSize="13sp"
+            android:id="@+id/cartTextView4"
+            />
+
         <ImageView
             android:layout_width="20dp"
             android:layout_height="40dp"
