@@ -6,7 +6,7 @@
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">Log Out</string>
 
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
@@ -67,5 +67,16 @@
     <string name="cusFullName">Full Name</string>
     <string name="cusTel">Telephone</string>
     <string name="cusAdd">Address</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!--Deliver Details Form-->
+    <string name="delTitle">Delivery Details</string>
+    <string name="delFullName">Full Name</string>
+    <string name="delPhnNo">Phone Number</string>
+    <string name="delStreet">Street Address</string>
+    <string name="delCity">City</string>
+    <string name="delBtn">Save</string>
 
 </resources>

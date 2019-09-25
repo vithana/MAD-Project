@@ -5,10 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
+import com.example.foodhut.database.Cart;
+import com.example.foodhut.database.Common;
 import com.example.foodhut.database.Offer;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -34,6 +38,7 @@ public class UserOfferDetails extends AppCompatActivity {
     DatabaseReference offers;
 
     private ProgressDialog dialog = null;
+    private Offer offer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +72,7 @@ public class UserOfferDetails extends AppCompatActivity {
         offers.child(offerId).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                Offer offer = dataSnapshot.getValue(Offer.class);
+                offer = dataSnapshot.getValue(Offer.class);
 
                 collapsingToolbarLayout.setTitle(offer.getOfferName());
                 String temp = String.valueOf(offer.getPrice());
@@ -95,5 +100,29 @@ public class UserOfferDetails extends AppCompatActivity {
 
             }
         });
+    }
+
+    public void addOffer(View view) {
+
+        String qty = numberButton.getNumber().trim();
+        DatabaseReference db = FirebaseDatabase.getInstance().getReference();
+
+        Cart cart = new Cart();
+
+        cart.setCusName(Common.loggedUser.getUserName());
+        cart.setFoodName(offer.getOfferName());
+        int q = Integer.parseInt(qty);
+        cart.setQuantity(q);
+        cart.setTotal(offer.getPrice() * q);
+        cart.setImageId(offer.getImageId());
+        cart.setType("offer");
+
+        DatabaseReference ref = db.child("cart").child(Common.loggedUser.getUserName()).push();
+        cart.setOrderId(ref.getKey());
+
+        db.child("cart").child(Common.loggedUser.getUserName()).child(cart.getOrderId()).setValue(cart);
+
+        Toast.makeText(UserOfferDetails.this, "Successfully Added", Toast.LENGTH_SHORT).show();
+
     }
 }

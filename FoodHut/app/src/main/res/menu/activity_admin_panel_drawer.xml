@@ -36,13 +36,4 @@
         </menu>
     </item>
 
-    <item android:title="Externals">
-        <menu>
-            <item
-                android:id="@+id/admin_logout"
-                android:icon="@drawable/ic_logout"
-                android:title="@string/menu_logout" />
-        </menu>
-    </item>
-
 </menu>

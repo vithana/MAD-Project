@@ -40,8 +40,6 @@
                 android:id="@+id/imageView2"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-
-
                 app:srcCompat="@drawable/customer" />
 
         </view>
@@ -68,6 +66,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout>
 
             <TextView
+                android:id="@+id/confTitle"
                 android:layout_width="341dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -81,10 +80,9 @@
 
             <TextView
                 android:id="@+id/textView16"
-                android:layout_width="92dp"
-                android:layout_height="32dp"
-
-                android:layout_marginStart="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
                 android:layout_marginTop="72dp"
                 android:layout_marginEnd="218dp"
                 android:text="Address"
@@ -97,14 +95,16 @@
 
             <TextView
                 android:id="@+id/textView15"
-                android:layout_width="92dp"
+                android:layout_width="wrap_content"
                 android:layout_height="32dp"
+                android:layout_marginStart="8dp"
                 android:layout_marginTop="14dp"
-                android:layout_marginEnd="137dp"
-                android:text="Phone NO"
+                android:layout_marginEnd="100dp"
+                android:text="Phone"
                 android:textColor="@color/white"
                 android:textSize="20dp"
                 app:layout_constraintEnd_toStartOf="@+id/textView19"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
             <TextView
@@ -113,7 +113,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="16dp"
-                android:text="Toatal price"
+                android:text="Total price"
                 android:textColor="@color/white"
                 android:textSize="20dp"
                 android:textStyle="bold"
@@ -148,7 +148,6 @@
         android:text="Edit"
         android:textColor="@color/white"
         android:textSize="20dp"
-        android:onClick="navConfDel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view" />

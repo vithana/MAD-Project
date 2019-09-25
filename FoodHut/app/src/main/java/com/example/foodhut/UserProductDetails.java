@@ -2,14 +2,17 @@ package com.example.foodhut;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
+import com.example.foodhut.database.Cart;
+import com.example.foodhut.database.Common;
 import com.example.foodhut.database.Product;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -35,6 +38,7 @@ public class UserProductDetails extends AppCompatActivity {
     DatabaseReference products;
 
     private ProgressDialog dialog = null;
+    private Product product;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,7 +72,7 @@ public class UserProductDetails extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                Product product = dataSnapshot.getValue(Product.class);
+                product = dataSnapshot.getValue(Product.class);
 
                 collapsingToolbarLayout.setTitle(product.getFoodName());
                 String temp = String.valueOf(product.getPrice());
@@ -96,5 +100,28 @@ public class UserProductDetails extends AppCompatActivity {
             }
         });
 
+    }
+
+    public void addOrder(View view) {
+
+        String qty = numberButton.getNumber().trim();
+        DatabaseReference db = FirebaseDatabase.getInstance().getReference();
+
+        Cart cart = new Cart();
+
+        cart.setCusName(Common.loggedUser.getUserName());
+        cart.setFoodName(product.getFoodName());
+        int q = Integer.parseInt(qty);
+        cart.setQuantity(q);
+        cart.setTotal(product.getPrice() * q);
+        cart.setImageId(product.getImageId());
+        cart.setType("product");
+
+        DatabaseReference ref = db.child("cart").child(Common.loggedUser.getUserName()).push();
+        cart.setOrderId(ref.getKey());
+
+        db.child("cart").child(Common.loggedUser.getUserName()).child(cart.getOrderId()).setValue(cart);
+
+        Toast.makeText(UserProductDetails.this, "Successfully Added", Toast.LENGTH_SHORT).show();
     }
 }

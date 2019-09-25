@@ -47,7 +47,7 @@
         tools:layout_editor_absoluteY="189dp" />
 
     <EditText
-        android:id="@+id/fullname"
+        android:id="@+id/fullnameEdit"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
@@ -61,7 +61,7 @@
         app:layout_constraintTop_toBottomOf="@+id/delTitle" />
 
     <EditText
-        android:id="@+id/phnNo"
+        android:id="@+id/phnNoEdit"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -72,10 +72,10 @@
         android:padding="16dp"
         app:layout_constraintEnd_toStartOf="@id/guideline_right"
         app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@+id/fullname" />
+        app:layout_constraintTop_toBottomOf="@+id/fullnameEdit" />
 
     <EditText
-        android:id="@+id/streetAdd"
+        android:id="@+id/streetAddEdit"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -86,10 +86,10 @@
         android:padding="16dp"
         app:layout_constraintEnd_toStartOf="@id/guideline_right"
         app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@+id/phnNo" />
+        app:layout_constraintTop_toBottomOf="@+id/phnNoEdit" />
 
     <EditText
-        android:id="@+id/city"
+        android:id="@+id/cityEdit"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -100,10 +100,10 @@
         android:padding="16dp"
         app:layout_constraintEnd_toStartOf="@id/guideline_right"
         app:layout_constraintStart_toStartOf="@id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@+id/streetAdd" />
+        app:layout_constraintTop_toBottomOf="@+id/streetAddEdit" />
 
     <Button
-        android:id="@+id/delivery_btn"
+        android:id="@+id/delivery_btn_edit"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -113,6 +113,6 @@
         android:background="@drawable/btn_bg"
         app:layout_constraintEnd_toStartOf="@+id/guideline_right"
         app:layout_constraintStart_toStartOf="@+id/guideline_left"
-        app:layout_constraintTop_toBottomOf="@id/city" />
+        app:layout_constraintTop_toBottomOf="@id/cityEdit" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
