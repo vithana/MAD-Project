@@ -112,10 +112,4 @@ public class Main2Activity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-
-
-    public void navDelivery(View v) {
-        Intent i = new Intent(this, DeliveryForm.class);
-        startActivity(i);
-    }
 }

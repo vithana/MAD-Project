@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -43,6 +44,7 @@ public class CartFragment extends Fragment {
     DatabaseReference db;
     ArrayList<Cart> list = new ArrayList<>();
     ListView listView;
+    Button btn;
 
     @Nullable
     @Override
@@ -53,6 +55,7 @@ public class CartFragment extends Fragment {
         dialog = new ProgressDialog(getActivity());
         dialog.setMessage("Please Wait");
 
+        btn = view.findViewById(R.id.cart_btn);
         listView = (ListView)view.findViewById(R.id.user_cart);
         final CartFragment.MyAdapter adapter = new CartFragment.MyAdapter(getActivity(), list);
 
@@ -115,6 +118,16 @@ public class CartFragment extends Fragment {
             }
         });
 
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), DeliveryForm.class);
+                intent.putExtra("cus_name", Common.loggedUser.getUserName());
+                intent.putExtra("total", String.valueOf(total));
+                startActivity(intent);
+            }
+        });
+
         return view;
     }
 
@@ -144,7 +157,7 @@ public class CartFragment extends Fragment {
             } else {
                 ref = FirebaseStorage.getInstance().getReference("offers");
             }
-            
+
             ref.child(cart1.getImageId()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                 @Override
                 public void onSuccess(Uri uri) {
@@ -195,5 +208,9 @@ public class CartFragment extends Fragment {
 
         AlertDialog alertDialog = alert.create();
         alertDialog.show();
+    }
+
+    public void redirectTo(View view) {
+
     }
 }
