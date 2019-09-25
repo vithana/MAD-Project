@@ -1,8 +1,11 @@
 package com.example.foodhut;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.foodhut.database.Common;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -22,6 +25,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Main2Activity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -83,6 +87,30 @@ public class Main2Activity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            AlertDialog.Builder alert = new AlertDialog.Builder(this);
+            alert.setMessage("Are you sure want to logout?");
+
+            alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    Common.loggedUser = null;
+                    Toast.makeText(Main2Activity.this, "Successfully Logged out", Toast.LENGTH_SHORT).show();
+
+                    Intent intent = new Intent(Main2Activity.this, MainActivity.class);
+                    startActivity(intent);
+                }
+            });
+
+            alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    //getActivity().finish();
+                }
+            });
+
+            AlertDialog alertDialog = alert.create();
+            alertDialog.show();
+
             return true;
         }
 
@@ -106,7 +134,6 @@ public class Main2Activity extends AppCompatActivity
         } else if (id == R.id.nav_user_profile) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container1, new UserProfileFragment()).commit();
         }
-
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout1);
         drawer.closeDrawer(GravityCompat.START);
