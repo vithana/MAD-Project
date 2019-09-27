@@ -5,6 +5,7 @@ import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -78,8 +79,21 @@ public class AdminAddNewProduct extends Fragment {
                 if (storageTask != null && storageTask.isInProgress()) {
                     Toast.makeText(getActivity().getApplicationContext(), "Upload in progress", Toast.LENGTH_SHORT).show();
                 } else {
-                    dialog.show();
-                    fileUploader();
+
+                    if (TextUtils.isEmpty(fName.getText().toString().trim())) {
+                        fName.setError("Please Enter Food Name");
+                    } else if (TextUtils.isEmpty(fPrice.getText().toString().trim())) {
+                        fPrice.setError("Please Enter Food Price");
+                    } else if (TextUtils.isEmpty(fCategory.getText().toString().trim())) {
+                        fCategory.setError("Please Enter Food Category");
+                    } else if (TextUtils.isEmpty(fPortion.getText().toString().trim())) {
+                        fPortion.setError("Please Enter Food Portion");
+                    } else if (uri == null) {
+                        Toast.makeText(getActivity().getApplicationContext(), "Please Add An Image", Toast.LENGTH_SHORT).show();
+                    } else {
+                        dialog.show();
+                        fileUploader();
+                    }
                 }
             }
         });

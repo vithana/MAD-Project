@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -51,19 +52,26 @@ public class MainActivity extends AppCompatActivity {
 
         btn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                db = FirebaseDatabase.getInstance().getReference("users");
 
-                dialog = new ProgressDialog(MainActivity.this);
-                dialog.setMessage("Please Wait");
+                if (TextUtils.isEmpty(email.getText().toString())) {
+                    email.setError("Please Enter Username");
+                } else if (TextUtils.isEmpty(pwd.getText().toString())) {
+                    pwd.setError("Please Enter Password");
+                } else {
+                    db = FirebaseDatabase.getInstance().getReference("users");
 
-                try {
-                    String hashPwd = toHexString(getSHA(pwd.getText().toString()));
+                    dialog = new ProgressDialog(MainActivity.this);
+                    dialog.setMessage("Please Wait");
 
-                    dialog.show();
+                    try {
+                        String hashPwd = toHexString(getSHA(pwd.getText().toString()));
 
-                    logIn(email.getText().toString(), hashPwd);
-                } catch (NoSuchAlgorithmException e) {
-                    e.printStackTrace();
+                        dialog.show();
+
+                        logIn(email.getText().toString(), hashPwd);
+                    } catch (NoSuchAlgorithmException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
          }

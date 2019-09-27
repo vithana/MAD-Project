@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -48,33 +49,42 @@ public class SignUp extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-                if (pwd.getText().toString().equalsIgnoreCase(cPwd.getText().toString())) {
-
-                    db = FirebaseDatabase.getInstance().getReference("users");
-
-                    dialog = new ProgressDialog(SignUp.this);
-                    dialog.setMessage("Please Wait");
-
-                    try {
-                        user.setEmail(email.getText().toString().trim());
-                        user.setUserName(username.getText().toString().trim());
-
-                        String hashPwd = toHexString(getSHA(pwd.getText().toString()));
-
-                        user.setPassword(hashPwd);
-
-                        dialog.show();
-
-                        submit(user.getUserName());
-
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-
+                if (TextUtils.isEmpty(email.getText().toString().trim())) {
+                    email.setError("Please Enter Email!");
+                } else if (TextUtils.isEmpty(username.getText().toString().trim())) {
+                    username.setError("Please Enter Username");
+                } else if (TextUtils.isEmpty(pwd.getText().toString())) {
+                    pwd.setError("Please Enter Password");
+                } else if (TextUtils.isEmpty(cPwd.getText().toString().trim())) {
+                    cPwd.setError("Please Enter Confirm Password");
                 } else {
-                    Toast.makeText(getApplicationContext(), "Passwords not matched", Toast.LENGTH_SHORT).show();
-                }
+                    if (pwd.getText().toString().equalsIgnoreCase(cPwd.getText().toString())) {
 
+                        db = FirebaseDatabase.getInstance().getReference("users");
+
+                        dialog = new ProgressDialog(SignUp.this);
+                        dialog.setMessage("Please Wait");
+
+                        try {
+                            user.setEmail(email.getText().toString().trim());
+                            user.setUserName(username.getText().toString().trim());
+
+                            String hashPwd = toHexString(getSHA(pwd.getText().toString()));
+
+                            user.setPassword(hashPwd);
+
+                            dialog.show();
+
+                            submit(user.getUserName());
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Passwords not matched", Toast.LENGTH_SHORT).show();
+                    }
+                }
             }
         });
     }

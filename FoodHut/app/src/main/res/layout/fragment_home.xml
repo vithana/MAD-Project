@@ -15,15 +15,12 @@
             android:layout_width="wrap_content"
             android:layout_height="204dp"
             android:layout_margin="20dp"
-            android:background="@drawable/rounded_view_offer"
-            android:onClick="navigateToOffer">
+            android:background="@drawable/rounded_view_offer">
 
             <ImageView
                 android:id="@+id/imageView2"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-
-
                 app:srcCompat="@drawable/screenshot5" />
 
         </view>
@@ -33,7 +30,6 @@
             class="com.google.android.material.circularreveal.CircularRevealGridLayout"
             android:layout_width="wrap_content"
             android:layout_height="204dp"
-
             android:layout_below="@+id/view2"
             android:layout_centerHorizontal="true"
             android:layout_marginStart="20dp"
@@ -46,13 +42,12 @@
                 android:id="@+id/imageView5"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-
-
                 app:srcCompat="@drawable/offer3" />
 
         </view>
 
     <Button
+        android:id="@+id/home_offer"
         android:layout_width="377dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -94,7 +89,6 @@
         class="com.google.android.material.circularreveal.CircularRevealGridLayout"
         android:layout_width="wrap_content"
         android:layout_height="204dp"
-
         android:layout_below="@+id/view2"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="20dp"
@@ -107,7 +101,6 @@
             android:id="@+id/imageView6"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:onClick="navTemp"
             app:srcCompat="@drawable/foodhome1" />
 
     </view>
@@ -118,7 +111,6 @@
         class="com.google.android.material.circularreveal.CircularRevealGridLayout"
         android:layout_width="wrap_content"
         android:layout_height="204dp"
-
         android:layout_below="@+id/view2"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="20dp"
@@ -131,8 +123,6 @@
             android:id="@+id/imageView7"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-
-
             app:srcCompat="@drawable/homefood2" />
 
     </view>
@@ -142,7 +132,6 @@
         class="com.google.android.material.circularreveal.CircularRevealGridLayout"
         android:layout_width="wrap_content"
         android:layout_height="204dp"
-
         android:layout_below="@+id/view2"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="20dp"
@@ -155,8 +144,6 @@
             android:id="@+id/imageView8"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-
-
             app:srcCompat="@drawable/foodhome4" />
 
     </view>
@@ -166,7 +153,6 @@
         class="com.google.android.material.circularreveal.CircularRevealGridLayout"
         android:layout_width="wrap_content"
         android:layout_height="204dp"
-
         android:layout_below="@+id/view2"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="20dp"
@@ -179,8 +165,6 @@
             android:id="@+id/imageView9"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-
-
             app:srcCompat="@drawable/homefood3" />
 
     </view>
