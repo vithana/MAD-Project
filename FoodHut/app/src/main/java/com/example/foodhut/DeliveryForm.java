@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -41,32 +42,44 @@ public class DeliveryForm extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dialog.show();
-                db = FirebaseDatabase.getInstance().getReference("orders");
 
-                order = new Order();
-                order.setCusName(Common.loggedUser.getUserName());
-                order.setFullName(fName.getText().toString().trim());
-                order.setPhoneNo(phn.getText().toString().trim());
-                order.setStreet(street.getText().toString().trim());
-                order.setCity(city.getText().toString().trim());
-                order.setTotal(Double.parseDouble(total));
+                if (TextUtils.isEmpty(fName.getText().toString().trim())) {
+                    fName.setError("Please Enter Full Name");
+                } else if (TextUtils.isEmpty(phn.getText().toString().trim())) {
+                    phn.setError("Please Enter Phone Number");
+                } else if (TextUtils.isEmpty(street.getText().toString().trim())) {
+                    street.setError("Please Enter Street Address");
+                } else if (TextUtils.isEmpty(city.getText().toString().trim())) {
+                    city.setError("Please Enter City");
+                } else {
 
-                DatabaseReference ref = db.push();
-                order.setOrderId(ref.getKey());
+                    dialog.show();
+                    db = FirebaseDatabase.getInstance().getReference("orders");
 
-                db.child(order.getOrderId()).setValue(order);
+                    order = new Order();
+                    order.setCusName(Common.loggedUser.getUserName());
+                    order.setFullName(fName.getText().toString().trim());
+                    order.setPhoneNo(phn.getText().toString().trim());
+                    order.setStreet(street.getText().toString().trim());
+                    order.setCity(city.getText().toString().trim());
+                    order.setTotal(Double.parseDouble(total));
 
-                dialog.dismiss();
-                Toast.makeText(DeliveryForm.this, "Successfully Saved", Toast.LENGTH_SHORT).show();
+                    DatabaseReference ref = db.push();
+                    order.setOrderId(ref.getKey());
 
-                Intent i = new Intent(DeliveryForm.this, ConfirmDeatils.class);
-                i.putExtra("orderId", order.getOrderId());
-                i.putExtra("street", order.getStreet());
-                i.putExtra("city", order.getCity());
-                i.putExtra("phn", order.getPhoneNo());
-                i.putExtra("total", String.valueOf(order.getTotal()));
-                startActivity(i);
+                    db.child(order.getOrderId()).setValue(order);
+
+                    dialog.dismiss();
+                    Toast.makeText(DeliveryForm.this, "Successfully Saved", Toast.LENGTH_SHORT).show();
+
+                    Intent i = new Intent(DeliveryForm.this, ConfirmDeatils.class);
+                    i.putExtra("orderId", order.getOrderId());
+                    i.putExtra("street", order.getStreet());
+                    i.putExtra("city", order.getCity());
+                    i.putExtra("phn", order.getPhoneNo());
+                    i.putExtra("total", String.valueOf(order.getTotal()));
+                    startActivity(i);
+                }
             }
         });
     }

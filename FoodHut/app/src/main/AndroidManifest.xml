@@ -37,13 +37,6 @@
             android:name=".DeliveryForm"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".UserGetOffer"
-            android:parentActivityName=".Main2Activity"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".ViewFood"
-            android:theme="@style/AppTheme" />
-        <activity
             android:name=".AdminPanel"
             android:label="@string/title_activity_admin_panel"
             android:theme="@style/AppTheme.NoActionBar.NoActionBar" />

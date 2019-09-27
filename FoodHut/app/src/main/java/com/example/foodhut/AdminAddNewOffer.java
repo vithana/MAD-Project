@@ -5,6 +5,7 @@ import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,7 +38,7 @@ public class AdminAddNewOffer extends Fragment {
     private StorageTask storageTask;
     private ProgressDialog dialog = null;
     private Offer offer;
-    public Uri uri;
+    public Uri uri = null;
 
     @Nullable
     @Override
@@ -71,8 +72,19 @@ public class AdminAddNewOffer extends Fragment {
                 if (storageTask != null && storageTask.isInProgress()) {
                     Toast.makeText(getActivity().getApplicationContext(), "Upload in progress", Toast.LENGTH_SHORT).show();
                 } else {
-                    dialog.show();
-                    fileUploader();
+
+                    if (TextUtils.isEmpty(ofName.getText().toString().trim())) {
+                        ofName.setError("Please Enter Offer Name");
+                    } else if (TextUtils.isEmpty(ofDes.getText().toString().trim())) {
+                        ofDes.setError("Please Enter Offer Description");
+                    } else if (TextUtils.isEmpty(ofPrice.getText().toString().trim())) {
+                        ofPrice.setError("Please Enter Offer Price");
+                    } else if (uri == null) {
+                        Toast.makeText(getActivity().getApplicationContext(), "Please Add An Image", Toast.LENGTH_SHORT).show();
+                    } else {
+                        dialog.show();
+                        fileUploader();
+                    }
                 }
             }
         });
